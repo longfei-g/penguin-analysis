@@ -3,11 +3,14 @@ title: "Penguin Analysis"
 author: "Daniel Chen"
 date: "`r Sys.Date()`"
 output: html_document
+
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
+
+This is the pengins dataset, but here's a citation for the UCI heart disease @bashir2014ensemble.
 
 ```{r}
 library(palmerpenguins)
@@ -58,7 +61,12 @@ penguins %>%
   count(species, my_predict)
 ```
 
+## Results
 
+<!--
+TODO: this is a html comment
+-->
+our data has `r nrow(penguins)` rows.
 
 ## R Markdown
 
@@ -79,3 +87,8 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# References
+
+
+Bashir, Saba, Usman Qamar, and M. Younus Javed. "An ensemble based decision support framework for intelligent heart disease diagnosis." International conference on information society (i-Society 2014). IEEE, 2014.
