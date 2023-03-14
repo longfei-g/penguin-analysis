@@ -2,12 +2,14 @@
 title: "Penguin Analysis"
 author: "Daniel Chen"
 date: "`r Sys.Date()`"
-output: html_document
+output: bookdown::html_document2
 bibliography: citations.bib
 ---
 
+# Introduction
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 This is the pengins dataset, but here's a citation for the UCI heart disease @bashir2014ensemble.
@@ -28,6 +30,8 @@ kable(head(penguins))
 library(tidyverse)
 ```
 
+# Methods
+
 ```{r, message=FALSE, warning=FALSE, fig.alt="This is for a screen reader and this is a figure of the bill_length_mm on the x axis, and the fillter_lenth_mm on the y, colore by species of penguins", fig.cap="Pengins by fiipper length vs bill length."}
 ggplot(penguins, aes(x = bill_length_mm,
                      y = flipper_length_mm,
@@ -36,11 +40,11 @@ ggplot(penguins, aes(x = bill_length_mm,
 ```
 
 
-```{r}
+```{r penguins-with-lines, echo=TRUE}
 #| message=FALSE,
 #| warning=FALSE,
 #| fig.alt="This is for a screen reader and this is a figure of the bill_length_mm on the x axis, and the fillter_lenth_mm on the y, colore by species of penguins",
-#| fig.cap="Pengins by fiipper length vs bill length."
+#| fig.cap="Pengins by fiipper length vs bill length. Vertical and Horizontal lines represent cutoffs from the function."
 
 ggplot(penguins, aes(x = bill_length_mm,
                      y = flipper_length_mm,
@@ -61,14 +65,15 @@ penguins %>%
   count(species, my_predict)
 ```
 
-## Results
+# Results
 
 <!--
 TODO: this is a html comment
 -->
 our data has `r nrow(penguins)` rows.
+Figure \@ref(fig:penguins-with-lines) has shows where the function will cutoff for the classification.
 
-## R Markdown
+# R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
