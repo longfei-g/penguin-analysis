@@ -18,10 +18,9 @@ This is the pengins dataset, but here's a citation for the UCI heart disease @ba
 library(palmerpenguins)
 library(knitr)
 library(here)
+library(pkg3.7)
 
 print(getwd())
-
-source(here("R/predict.R"))
 
 kable(head(penguins))
 ```
@@ -57,7 +56,7 @@ ggplot(penguins, aes(x = bill_length_mm,
 ```{r}
 penguins <- penguins %>%
   drop_na() %>% # TODO: make sure you clean this at the top
-  mutate(my_predict = map2_chr(bill_length_mm, flipper_length_mm, classify_penguin))
+  mutate(my_predict = map2_chr(bill_length_mm, flipper_length_mm, classifier))
 ```
 
 ```{r}
